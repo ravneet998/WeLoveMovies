@@ -17,18 +17,11 @@ app.use("/reviews", reviewsRouter);
 app.use("/theaters", theatersRouter);
 
 //Not found handler
-app.use((req, res, next) => {
-  next({
-    status: 404,
-    message: `Not found: ${req.originalURL}`,
-  });
-});
-
+app.use(notFound)
+  
+  
 //Error Handler
-app.use((error, req, res, next) => {
-  console.error(error);
-  const { status = 500, message = "Something went wrong!" } = error;
-  res.status(status).json({ error: message });
-});
+app.use(errorHandler)
+
 
 module.exports = app;
