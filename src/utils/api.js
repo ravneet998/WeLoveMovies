@@ -1,4 +1,5 @@
-const API_BASE_URL = "https://backend-module-43.onrender.com"
+const API_BASE_URL =
+  process.env.REACT_APP_API_BASE_URL || "https://backend-module-43.onrender.com";
 
 const headers = new Headers();
 headers.append("Content-Type", "application/json");
