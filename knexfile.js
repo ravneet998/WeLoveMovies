@@ -40,7 +40,7 @@ module.exports = {
   },
 
   test: {
-    client: "postgresql",
+    client: "sqlite3",
     connection: {
       filename: ":memory:",
     },
