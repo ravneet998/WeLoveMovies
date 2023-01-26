@@ -30,7 +30,7 @@ async function destroy(req, res) {
 }
 
 module.exports = {
-    list,
-    delete: [idExists, destroy],
-    update: [idExists, update]
+    list: asyncErrorBoundary(list),
+    update: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(update)],
+    delete: [asyncErrorBoundary(reviewExists), asyncErrorBoundary(destroy)],
 }
